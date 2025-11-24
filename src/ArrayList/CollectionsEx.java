@@ -13,7 +13,7 @@ public class CollectionsEx {
             String separator;
             if (iterator.hasNext()) separator = "->";
             else separator = "\n";
-            System.out.println(e+separator);
+            System.out.print(e+separator);
         }
     }
 
