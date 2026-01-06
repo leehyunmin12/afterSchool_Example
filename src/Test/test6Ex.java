@@ -18,7 +18,7 @@ public class test6Ex {
                 System.out.print("이름은 " + Namelist[i] + "이며 나이는 " + Agelist[i] + "이고 키는 " + Kilist[i] + "입니다.");
                 break;
             }
-            if(i==Namelist.length-1) System.out.print("입력하신 멤버는 존재하지 않습니다.");
+            if(i==Namelist.length-1) System.out.print("입력하신 멤버는 존재하지 않습니다."); // 멤버에 포함되어 있지 않았을 때 출력
         }
 
 
