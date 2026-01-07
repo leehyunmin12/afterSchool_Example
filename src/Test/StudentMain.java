@@ -2,13 +2,16 @@ package Test;
 
 class Student {
     private String name, stuld, age, phone;
-
-    public Student() {}
+    static int count = 0;
+    public Student() {
+        count++;
+    }
     public Student(String name, String stuld, String age, String phone) {
         this.name = name;
         this.stuld = stuld;
         this.age = age;
         this.phone = phone;
+        count++;
     }
 
     public String getName() {
@@ -63,6 +66,7 @@ public class StudentMain {
         for(int i=0; i<students.length; i++) System.out.println(students[i]);
         for(Student std : students) System.out.println(std);
 
+        System.out.println("전체 학생 수 : " + Student.count);
 
     }
 }

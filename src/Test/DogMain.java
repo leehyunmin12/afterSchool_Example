@@ -2,14 +2,17 @@ package Test;
 
 class Dog {
     private String name, breed, age, color;
-
-    public Dog() {}
+    static int count = 0;
+    public Dog() {
+        count++;
+    }
 
     public Dog(String name, String breed, String age, String color) {
         this.name = name;
         this.breed = breed;
         this.age = age;
         this.color = color;
+        count++;
     }
 
     @Override
@@ -74,6 +77,6 @@ public class DogMain {
         };
         for(int i=0; i<dogs.length; i++) System.out.println(dogs[i]);
         for(Dog d : dogs) System.out.println(d);
-
+        System.out.println("전체 강아지 수 : " + Dog.count);
     }
 }

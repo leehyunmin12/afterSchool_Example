@@ -2,14 +2,18 @@ package Test;
 
 class Movie {
     private String title, like, manager, year;
+    static int count = 0;
 
-    public Movie() {}
+    public Movie() {
+        count++;
+    }
 
     public Movie(String title, String like, String manager, String year) {
         this.title = title;
         this.like = like;
         this.manager = manager;
         this.year = year;
+        count++;
     }
 
     public String getTitle() {
@@ -64,5 +68,6 @@ public class MovieMain {
 
         for(int i=0; i<movies.length; i++) System.out.println(movies[i]);
         for(Movie m : movies) System.out.println(m);
+        System.out.println("전체 영화 수 : " + Movie.count);
     }
 }

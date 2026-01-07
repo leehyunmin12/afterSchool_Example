@@ -1,16 +1,16 @@
 package Test;
 
-import org.w3c.dom.css.Rect;
-
-import javax.net.ssl.SSLContext;
-
 class Rectangle {
     private int garo, sero;
+    static int count = 0;
 
-    public Rectangle() {}
+    public Rectangle() {
+        count++;
+    }
     public Rectangle(int garo, int sero) {
         this.garo = garo;
         this.sero = sero;
+        count++;
     }
     public int getArea() {
         return garo * sero;
@@ -21,6 +21,10 @@ class Rectangle {
 
     public int getGaro() {
         return garo;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public void setGaro(int garo) {
@@ -59,6 +63,8 @@ public class RectangleMain {
             System.out.println(rect.getArea());
             System.out.println(rect.getDulrae());
         }
+
+        System.out.println("전체 도형 : " + Rectangle.count);
 
 
     }
