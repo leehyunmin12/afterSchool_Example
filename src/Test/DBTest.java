@@ -198,7 +198,7 @@ public class DBTest {
 
     }
 
-    private static void updateUser(Scanner scan, Connection conn) {
+    private static void updateUser(Scanner scan, Connection conn) throws SQLException {
         scan.nextLine();
         System.out.print("수정할 학생의 이름을 입력하세요 : ");
         String updateName = scan.nextLine();
@@ -218,6 +218,26 @@ public class DBTest {
         System.out.print("체육점수를 입력하시오 : ");
         int phyc = scan.nextInt();
 
+        Student student = new Student(name, tel, userid, jeongong, math, phyc);
+
+        String sql = "update persontbl set username = ?, tel = ?, userid = ?, jeongong = ?, math = ?, phyc = ?, mathGrade = ?, phycGrade = ?, Ave = ? where username = ?";
+
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+
+        pstmt.setString(1, student.getName());
+        pstmt.setString(2, student.getPhone());
+        pstmt.setInt(3, student.getStuid());
+        pstmt.setString(4, student.getDeft());
+        pstmt.setInt(5, student.getMath());
+        pstmt.setInt(6, student.getPhyc());
+        pstmt.setString(7, student.getAbCGrade());
+        pstmt.setString(8, student.getPFGrade());
+        pstmt.setDouble(9, student.getAve());
+        pstmt.setString(10, updateName);
+
+        pstmt.executeUpdate();
+
+        System.out.println("수정이 완료되었습니다.\n");
 
     }
 
